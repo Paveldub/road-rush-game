@@ -9,11 +9,17 @@ class Road extends Phaser.GameObjects.Container {
 		this.add(this.back);
 		this.scene.add.existing(this);
 
+		// center road
 		Align.scaleToGameW(this.back, 0.5);
 
 		this.setSize(this.back.displayWidth, game.config.height);
 		this.lineGroup = this.scene.add.group();
 		this.count = 0;
+
+		// add car sprite
+		this.car = this.scene.add.sprite(this.displayWidth / 4, game.config.height * 0.9, 'cars');
+		Align.scaleToGameW(this.car, 0.1);
+		this.add(this.car);
 	}
 
 	makeLines() {
